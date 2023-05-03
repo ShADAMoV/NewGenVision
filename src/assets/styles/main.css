@@ -1,0 +1,32 @@
+@import '@/../node_modules/normalize.css/normalize.css';
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url(../fonts/JetBrainsMono/static/JetBrainsMono-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url(../fonts/JetBrainsMono/static/JetBrainsMono-SemiBold.ttf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url(../fonts/JetBrainsMono/static/JetBrainsMono-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+*, *:after, *:before {
+    font-family: 'JetBrains Mono', serif;
+    font-weight: 400;
+}
+
+.container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}
