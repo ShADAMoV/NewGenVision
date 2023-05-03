@@ -3,7 +3,7 @@ import PStatisticsItem from '@/components/4entities/PStatisticsItem.vue';
 
 const props = defineProps({
   time: {
-    type: Function,
+    type: String,
     required: true,
   },
 });
@@ -13,6 +13,7 @@ const props = defineProps({
 <template>
   <div class="p-statistics">
     <p-statistics-item
+      unit="sec"
       :statistics-value="time"
       statistics-name="Time"
       icon-url="src/assets/images/timer.png"

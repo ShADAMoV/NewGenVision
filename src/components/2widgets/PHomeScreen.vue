@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import PStartButton from '@/components/3features/PStartButton.vue';
 import { useHomeScreenDisabledStore } from '@/stores/homeScreenDisabled';
+import { useTimerStore } from "@/stores/timer";
+
+const timer = useTimerStore();
+const { start } = timer;
 
 const homeScreenDisabledStore = useHomeScreenDisabledStore();
 const { toggleIsDisabled } = homeScreenDisabledStore;
@@ -13,7 +17,7 @@ const { toggleIsDisabled } = homeScreenDisabledStore;
     </h1>
     <p-start-button
       text="start"
-      @click="toggleIsDisabled"
+      @click="toggleIsDisabled(); start()"
     />
   </div>
 </template>

@@ -3,6 +3,10 @@ import PStartButton from '@/components/3features/PStartButton.vue';
 import { useHomeScreenDisabledStore } from '@/stores/homeScreenDisabled';
 import { useTextsStore } from "@/stores/texts";
 import { computed, onMounted } from "vue";
+import { useTimerStore } from "@/stores/timer";
+
+const timer = useTimerStore();
+const { stop } = timer;
 
 const homeScreenDisabledStore = useHomeScreenDisabledStore();
 const { toggleIsDisabled } = homeScreenDisabledStore;
@@ -24,7 +28,7 @@ onMounted(() => {
     <div class="p-input-tester__button">
       <p-start-button
         text="restart"
-        @click="toggleIsDisabled"
+        @click="toggleIsDisabled(); stop()"
       />
     </div>
   </div>

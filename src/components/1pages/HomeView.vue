@@ -6,9 +6,13 @@ import PStatistics from '@/components/2widgets/PStatistics.vue';
 import PHomeScreen from '@/components/2widgets/PHomeScreen.vue';
 import { useHomeScreenDisabledStore } from '@/stores/homeScreenDisabled';
 import { storeToRefs } from 'pinia';
+import { useTimerStore } from "@/stores/timer";
 
 const homeScreenDisabledStore = useHomeScreenDisabledStore();
 const { isDisabled } = storeToRefs(homeScreenDisabledStore);
+
+const timer = useTimerStore();
+const { time } = storeToRefs(timer);
 
 </script>
 
@@ -18,7 +22,7 @@ const { isDisabled } = storeToRefs(homeScreenDisabledStore);
     <div class="container">
       <p-home-screen v-show="!isDisabled" />
       <p-input-tester v-if="isDisabled" />
-      <p-statistics time="" v-if="isDisabled" />
+      <p-statistics :time="time" v-if="isDisabled" />
     </div>
   </main>
   <PFooter />
