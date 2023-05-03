@@ -18,7 +18,7 @@ const { isDisabled } = storeToRefs(homeScreenDisabledStore);
     <div class="container">
       <p-home-screen v-show="!isDisabled" />
       <p-input-tester v-if="isDisabled" />
-      <p-statistics v-if="isDisabled" />
+      <p-statistics time="" v-if="isDisabled" />
     </div>
   </main>
   <PFooter />

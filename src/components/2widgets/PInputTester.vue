@@ -1,20 +1,25 @@
 <script setup lang="ts">
 import PStartButton from '@/components/3features/PStartButton.vue';
 import { useHomeScreenDisabledStore } from '@/stores/homeScreenDisabled';
+import { useTextsStore } from "@/stores/texts";
+import { computed, onMounted } from "vue";
 
 const homeScreenDisabledStore = useHomeScreenDisabledStore();
 const { toggleIsDisabled } = homeScreenDisabledStore;
+
+const store = useTextsStore();
+const getText = computed(() => {
+  return store.getText[0];
+});
+onMounted(() => {
+  store.fetchText();
+});
 </script>
 
 <template>
   <div class="p-input-tester">
     <div class="p-input-tester__text">
-      Burgdoggen brisket cupim corned beef jowl venison rump leberkas alcatra ham doner turkey.
-      Shoulder shankle brisket swine pig ham hock turducken strip steak, meatloaf sirloin buffalo chicken kevin.
-      Ham beef boudin, beef ribs pork loin pork chop kevin filet mignon cow doner ground round tenderloin bresaola buffalo.
-      Tail jerky drumstick ribeye filet mignon.
-      Swine chuck burgdoggen landjaeger hamburger meatloaf meatball sirloin bacon capicola pancetta chicken.
-      Strip steak chicken frankfurter short ribs biltong sausage picanha chislic corned beef turkey porchetta t-bone capicola ham brisket.
+      {{ getText }}
     </div>
     <div class="p-input-tester__button">
       <p-start-button
@@ -30,7 +35,7 @@ const { toggleIsDisabled } = homeScreenDisabledStore;
   max-width: 960px;
   min-width: 620px;
   min-height: 300px;
-  max-height: 550px;
+  max-height: 650px;
   background: rgba(242, 242, 242, 0.9);
   border-radius: 15px;
   padding: 15px;

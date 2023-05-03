@@ -1,11 +1,19 @@
 <script setup lang="ts">
 import PStatisticsItem from '@/components/4entities/PStatisticsItem.vue';
+
+const props = defineProps({
+  time: {
+    type: Function,
+    required: true,
+  },
+});
+
 </script>
 
 <template>
   <div class="p-statistics">
     <p-statistics-item
-      statistics-value="00:00"
+      :statistics-value="time"
       statistics-name="Time"
       icon-url="src/assets/images/timer.png"
     />
