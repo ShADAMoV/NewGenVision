@@ -1,11 +1,10 @@
-<script lang="ts" setup>
+<script setup>
 defineProps({
   text: {
     type: String,
     required: true,
   },
 });
-
 </script>
 
 <template>

@@ -1,34 +1,40 @@
-<script setup lang="ts">
+<script setup>
 import PStartButton from '@/components/3features/PStartButton.vue';
 import { useHomeScreenDisabledStore } from '@/stores/homeScreenDisabled';
-import { useTextsStore } from "@/stores/texts";
-import { computed, onMounted } from "vue";
-import { useTimerStore } from "@/stores/timer";
+import { useTimerStore } from '@/stores/timer';
+import { useTextsStore } from '@/stores/texts';
+import  { usePrintingTestStore } from '@/stores/printingTest';
 
-const timer = useTimerStore();
-const { stop } = timer;
+const printingTest = usePrintingTestStore();
+const { reset } = printingTest;
 
 const homeScreenDisabledStore = useHomeScreenDisabledStore();
 const { toggleIsDisabled } = homeScreenDisabledStore;
 
-const store = useTextsStore();
-const getText = computed(() => {
-  return store.getText[0];
+const timer = useTimerStore();
+const { stop } = timer;
+
+const texts = useTextsStore();
+
+const props = defineProps({
+  text: {
+    type:String,
+    required: true,
+  },
 });
-onMounted(() => {
-  store.fetchText();
-});
+
+
 </script>
 
 <template>
   <div class="p-input-tester">
     <div class="p-input-tester__text">
-      {{ getText }}
+      {{ props.text }}
     </div>
     <div class="p-input-tester__button">
       <p-start-button
         text="restart"
-        @click="toggleIsDisabled(); stop()"
+        @click="toggleIsDisabled(); stop(); texts.fetchText(); reset()"
       />
     </div>
   </div>

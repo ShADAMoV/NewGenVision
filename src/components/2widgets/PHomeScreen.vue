@@ -1,13 +1,13 @@
-<script setup lang="ts">
+<script setup>
 import PStartButton from '@/components/3features/PStartButton.vue';
 import { useHomeScreenDisabledStore } from '@/stores/homeScreenDisabled';
-import { useTimerStore } from "@/stores/timer";
-
-const timer = useTimerStore();
-const { start } = timer;
+import { useTimerStore } from '@/stores/timer';
 
 const homeScreenDisabledStore = useHomeScreenDisabledStore();
 const { toggleIsDisabled } = homeScreenDisabledStore;
+
+const timer = useTimerStore();
+const { start } = timer;
 </script>
 
 <template>

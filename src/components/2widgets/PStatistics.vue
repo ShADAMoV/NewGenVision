@@ -1,9 +1,17 @@
-<script setup lang="ts">
+<script setup>
 import PStatisticsItem from '@/components/4entities/PStatisticsItem.vue';
 
-const props = defineProps({
+defineProps({
   time: {
-    type: String,
+    type: Number,
+    required: true,
+  },
+  speed: {
+    type: Number,
+    required: true,
+  },
+  accuracy: {
+    type: Number,
     required: true,
   },
 });
@@ -20,19 +28,13 @@ const props = defineProps({
     />
     <p-statistics-item
       unit="char/min"
-      statistics-value="0"
+      :statistics-value="speed"
       statistics-name="Speed"
       icon-url="src/assets/images/clock.svg"
     />
     <p-statistics-item
-      unit="char/min"
-      statistics-value="0"
-      statistics-name="Record"
-      icon-url="src/assets/images/person.svg"
-    />
-    <p-statistics-item
       unit="%"
-      statistics-value="0"
+      :statistics-value="accuracy"
       statistics-name="Accuracy"
       icon-url="src/assets/images/statistics.svg"
     />
@@ -48,5 +50,7 @@ const props = defineProps({
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  max-width: 220px;
+  min-width: 220px;
 }
 </style>

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import PLogo from '@/components/3features/PLogo.vue';
 </script>
 

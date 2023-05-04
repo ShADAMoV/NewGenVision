@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 defineProps({
   iconUrl: {
     type: String,
@@ -9,11 +9,12 @@ defineProps({
     required: true,
   },
   statisticsValue: {
+    type: Number,
     required: true,
   },
   unit: {
     type: String,
-    required: false,
+    required: true,
   },
 });
 </script>
